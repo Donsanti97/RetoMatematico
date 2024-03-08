@@ -5,8 +5,8 @@ import static org.example.OperationsLevel.*;
 
 public class Operation extends Validations{
 
-    public static void getRandomOperation() {
-        System.out.println("Va a comenzar el juego, responda las preguntas, sino te mueres weon");
+    public static void getRandomOperation() throws InterruptedException {
+        System.out.println("Va a comenzar el juego, responda las preguntas...");
         System.out.println("Escriba el resultado de las operaciones");
         Scanner sc = new Scanner(System.in);
         Operations op = new Operations();
@@ -16,6 +16,7 @@ public class Operation extends Validations{
         int[] lvl1;
         int[] lvl2;
         int time;
+        int contador = 0;
         forPrincipal:
         for (int i = 0; i < 20; i++) {
             time = 5;
@@ -47,12 +48,13 @@ public class Operation extends Validations{
                     System.out.println("La operación es la siguiente: [" + op.getNumber1() + " + " + op.getNumber2() + "]");
                     System.out.print("Respuesta: ");
                     respuesta = waitForResponse(sc, time);
-                    if (respuesta == -1) {
+                    if (respuesta == -500) {
                         System.out.println("Su respuesta no fue recibida. El tiempo expiró");
                         break forPrincipal;
                     }
                     resultado = op.getAdd();
                     if (respuesta == resultado) {
+                        contador++;
                         continue;
                     } else {
                         System.out.println("\nRespuesta incorrecta..");
@@ -62,12 +64,13 @@ public class Operation extends Validations{
                     System.out.println("La operación es la siguiente: [" + op.getNumber1() + " - " + op.getNumber2() + "]");
                     System.out.print("Respuesta: ");
                     respuesta = waitForResponse(sc, time);
-                    if (respuesta == -1) {
+                    if (respuesta == -500) {
                         System.out.println("Su respuesta no fue recibida. El tiempo expiró");
                         break forPrincipal;
                     }
                     resultado = op.getSubtract();
                     if (respuesta == resultado) {
+                        contador++;
                         continue;
                     } else {
                         System.out.println("\nRespuesta incorrecta..");
@@ -77,12 +80,13 @@ public class Operation extends Validations{
                     System.out.println("La operación es la siguiente: [" + op.getNumber1() + " * " + op.getNumber2() + "]");
                     System.out.print("Respuesta: ");
                     respuesta = waitForResponse(sc, time);
-                    if (respuesta == -1) {
+                    if (respuesta == -500) {
                         System.out.println("Su respuesta no fue recibida. El tiempo expiró");
                         break forPrincipal;
                     }
                     resultado = op.getMultiply();
                     if (respuesta == resultado) {
+                        contador++;
                         continue;
                     } else {
                         System.out.println("\nRespuesta incorrecta..");
@@ -93,11 +97,12 @@ public class Operation extends Validations{
                     System.out.println("La operación es la siguiente: [" + op.getNumber1() + " / " + op.getNumber2() + "]");
                     System.out.print("Respuesta: ");
                     respuesta = waitForResponse(sc, time);
-                    if (respuesta == -1) {
+                    if (respuesta == -500) {
                         System.out.println("Su respuesta no fue recibida. El tiempo expiró");
                         break forPrincipal;
                     }
                     if (respuesta == resultado) {
+                        contador++;
                         continue;
                     } else {
                         System.out.println("\nRespuesta incorrecta..");
@@ -106,6 +111,12 @@ public class Operation extends Validations{
             }
         }
         System.out.println("juego finalizado!!");
+        Thread.sleep(2000);
+        if (contador == 20){
+            System.out.println("En hora buena haz ganado el juego!!");
+        }else {
+            System.out.println("No se ha podido completar el reto. Obtuviste " + contador + " puntos de 20");
+        }
         System.out.println("Desea comenzar el juego de nuevo? [si/no]");
         String respuestaRep = sc.next();
         respuestaRep = validaRespuesta(respuestaRep);
