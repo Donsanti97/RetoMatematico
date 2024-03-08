@@ -33,7 +33,7 @@ public class Validations {
             hiloDeEspera.interrupt(); // Interrumpir el hilo de espera si el usuario responde a tiempo
             //if(respuesta.)
         } catch (Exception e) {
-            respuesta = -1; // Devolver -1 si ocurre alguna excepción (no hay respuesta a tiempo)
+            respuesta = -500; // Devolver -1 si ocurre alguna excepción (no hay respuesta a tiempo)
         }
         return respuesta;
     }
