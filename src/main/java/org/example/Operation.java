@@ -19,7 +19,9 @@ public class Operation extends Validations{
         int contador = 0;
         forPrincipal:
         for (int i = 0; i < 20; i++) {
-            time = 5;
+            long initNime = System.currentTimeMillis();
+            long answerTime;
+            time = 5 * 1000;
             lvl1 = getLevel1Numbers();
             operation = getOperation();
             if (i + 1 <= 5) {
@@ -47,9 +49,14 @@ public class Operation extends Validations{
                 case "suma":
                     System.out.println("La operación es la siguiente: [" + op.getNumber1() + " + " + op.getNumber2() + "]");
                     System.out.print("Respuesta: ");
-                    respuesta = waitForResponse(sc, time);
+                    respuesta = sc.nextInt();
                     if (respuesta == -500) {
                         System.out.println("Su respuesta no fue recibida. Debe ingresar solo números enteros");
+                        break forPrincipal;
+                    }
+                    answerTime = System.currentTimeMillis() - initNime;
+                    if (answerTime > time){
+                        System.out.println("El tiempo fue excedido..");
                         break forPrincipal;
                     }
                     resultado = op.getAdd();
@@ -63,9 +70,14 @@ public class Operation extends Validations{
                 case "resta":
                     System.out.println("La operación es la siguiente: [" + op.getNumber1() + " - " + op.getNumber2() + "]");
                     System.out.print("Respuesta: ");
-                    respuesta = waitForResponse(sc, time);
+                    respuesta = sc.nextInt();
                     if (respuesta == -500) {
                         System.out.println("Su respuesta no fue recibida. Debe ingresar solo números enteros");
+                        break forPrincipal;
+                    }
+                    answerTime = System.currentTimeMillis() - initNime;
+                    if (answerTime > time){
+                        System.out.println("El tiempo fue excedido..");
                         break forPrincipal;
                     }
                     resultado = op.getSubtract();
@@ -79,9 +91,14 @@ public class Operation extends Validations{
                 case "multiplicacion":
                     System.out.println("La operación es la siguiente: [" + op.getNumber1() + " * " + op.getNumber2() + "]");
                     System.out.print("Respuesta: ");
-                    respuesta = waitForResponse(sc, time);
+                    respuesta = sc.nextInt();
                     if (respuesta == -500) {
                         System.out.println("Su respuesta no fue recibida. Debe ingresar solo números enteros");
+                        break forPrincipal;
+                    }
+                    answerTime = System.currentTimeMillis() - initNime;
+                    if (answerTime > time){
+                        System.out.println("El tiempo fue excedido..");
                         break forPrincipal;
                     }
                     resultado = op.getMultiply();
@@ -96,9 +113,14 @@ public class Operation extends Validations{
                     resultado = op.getDivide();
                     System.out.println("La operación es la siguiente: [" + op.getNumber1() + " / " + op.getNumber2() + "]");
                     System.out.print("Respuesta: ");
-                    respuesta = waitForResponse(sc, time);
+                    respuesta = sc.nextInt();
                     if (respuesta == -500) {
                         System.out.println("Su respuesta no fue recibida. Debe ingresar solo números enteros");
+                        break forPrincipal;
+                    }
+                    answerTime = System.currentTimeMillis() - initNime;
+                    if (answerTime > time){
+                        System.out.println("El tiempo fue excedido..");
                         break forPrincipal;
                     }
                     if (respuesta == resultado) {
