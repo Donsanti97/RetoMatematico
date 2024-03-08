@@ -49,7 +49,7 @@ public class Operation extends Validations{
                     System.out.print("Respuesta: ");
                     respuesta = waitForResponse(sc, time);
                     if (respuesta == -500) {
-                        System.out.println("Su respuesta no fue recibida. El tiempo expiró");
+                        System.out.println("Su respuesta no fue recibida. Debe ingresar solo números enteros");
                         break forPrincipal;
                     }
                     resultado = op.getAdd();
@@ -65,7 +65,7 @@ public class Operation extends Validations{
                     System.out.print("Respuesta: ");
                     respuesta = waitForResponse(sc, time);
                     if (respuesta == -500) {
-                        System.out.println("Su respuesta no fue recibida. El tiempo expiró");
+                        System.out.println("Su respuesta no fue recibida. Debe ingresar solo números enteros");
                         break forPrincipal;
                     }
                     resultado = op.getSubtract();
@@ -81,7 +81,7 @@ public class Operation extends Validations{
                     System.out.print("Respuesta: ");
                     respuesta = waitForResponse(sc, time);
                     if (respuesta == -500) {
-                        System.out.println("Su respuesta no fue recibida. El tiempo expiró");
+                        System.out.println("Su respuesta no fue recibida. Debe ingresar solo números enteros");
                         break forPrincipal;
                     }
                     resultado = op.getMultiply();
@@ -98,7 +98,7 @@ public class Operation extends Validations{
                     System.out.print("Respuesta: ");
                     respuesta = waitForResponse(sc, time);
                     if (respuesta == -500) {
-                        System.out.println("Su respuesta no fue recibida. El tiempo expiró");
+                        System.out.println("Su respuesta no fue recibida. Debe ingresar solo números enteros");
                         break forPrincipal;
                     }
                     if (respuesta == resultado) {
