@@ -11,8 +11,7 @@ public class Start extends Validations{
                                 Bienvenido a Reto Matemático
         A continuación se generarán una serie de preguntas con respuesta única.
         Usted deberá responder solo con números enteros. A medida que vaya avanzando
-        el nivel de complejidad aumentará. El tiempo para responder las preguntas
-        está limitado a 5 segundos.
+        el nivel de complejidad aumentará.
         Buena suerte!!!""");
         try {
             var sc = new Scanner(System.in);
