@@ -20,11 +20,12 @@ public class Start extends Validations{
                     El juego va a comenzar. Ingrese 1 para iniciar: """);
             validateNumber(sc);
             int opcion = sc.nextInt();
-            if (opcion == 1){
-                getRandomOperation();
-            } else {
-                System.out.println("Saliendo de la aplicación");
+            while (opcion != 1){
+                System.out.println("Ingrese 1 para comenzar");
+                validateNumber(sc);
+                opcion = sc.nextInt();
             }
+            getRandomOperation();
 
         } catch (Exception e) {
             throw new RuntimeException(e);
